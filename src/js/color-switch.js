@@ -13,6 +13,7 @@ let timerId = null;
 const onStartClick = () => {
   timerId = setInterval(() => {
     startBtnEl.removeEventListener('click', onStartClick);
+    startBtnEl.disabled = true;
     const randomColorIndex = randomIntegerFromInterval(0, colors.length - 1);
     body.style.backgroundColor = `${colors[randomColorIndex]}`;
   }, 1000);
@@ -21,6 +22,7 @@ const onStartClick = () => {
 const onStopClick = () => {
   clearInterval(timerId);
   startBtnEl.addEventListener('click', onStartClick);
+  startBtnEl.disabled = false;
 };
 
 startBtnEl.addEventListener('click', onStartClick);
