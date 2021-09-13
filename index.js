@@ -18,9 +18,9 @@ const randomIntegerFromInterval = (min, max) => {
 let timerId = null;
 
 const onStartClick = () => {
+  startBtnEl.disabled = true;
+  startBtnEl.removeEventListener("click", onStartClick);
   timerId = setInterval(() => {
-    startBtnEl.removeEventListener("click", onStartClick);
-    startBtnEl.disabled = true;
     const randomColorIndex = randomIntegerFromInterval(0, colors.length - 1);
     body.style.backgroundColor = `${colors[randomColorIndex]}`;
   }, 1000);
